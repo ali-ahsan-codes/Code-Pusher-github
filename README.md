@@ -1,70 +1,57 @@
-Git Clone & Push Manager 🚀
+<div align="center">
 
-A lightweight, local web application built with FastAPI and Tailwind CSS that allows you to easily upload a .zip archive of your project, automatically extracts it into a specific subfolder or root directory of a GitHub repository, generates a clean list.md project structure file, and pushes everything directly to GitHub—all through a clean dark-mode web interface!
+# 🚀 Local GitHub Project & Repository Sync Manager
 
-✨ Features
+**A High-Performance, Private, and Modern Local Web Application for Automated GitHub Uploads**
 
-🔒 Credential Management: Securely load your GitHub credentials via a local cred.json file.
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.110%2B-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.0-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Git](https://img.shields.io/badge/Git-Engine-F05032?style=for-the-badge&logo=git&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-emerald?style=for-the-badge)
 
-📁 Smart URL Parsing: Automatically handles GitHub target folder links (including URL-encoded spaces like %20) so files go exactly where you want them without creating duplicate folders.
+<p align="center">
+  <b>Bypasses GitHub API Constraints</b> &bull; 
+  <b>Automated Markdown Directory Tree</b> &bull; 
+  <b>Subfolder Targeted Pushes</b>
+</p>
 
-📦 Direct ZIP Upload: Extract and push compressed archives seamlessly without manual command-line cloning.
+---
 
-📑 Auto-Generated list.md: Scans the project structure and creates a readable Markdown file detailing all nested folders and files for better repository navigation.
+</div>
 
-⚡ Windows File Lock Safe: Includes robust error handlers to bypass Windows file permission locks ([WinError 5] Access is denied) on .git directories.
+## 📌 Executive Overview
 
-🎨 Modern UI: Clean, responsive dark-mode interface built with Tailwind CSS and FontAwesome.
+**Local GitHub Sync Manager** is a lightweight, local-first web interface engineered to streamline uploading zip archives and bulk project assets directly to targeted subdirectories inside GitHub repositories.
 
-🛠️ Tech Stack
+By employing a native **Git Clone & Push Backend Architecture**, this tool completely bypasses API rate limits, file size caps, and HTTP 404 pathing errors often associated with direct API endpoints.
 
-Backend: Python, FastAPI, Uvicorn, Git Subprocess, Zipfile
+---
 
-Frontend: HTML5, Tailwind CSS, JavaScript (Fetch API)
+## 🔥 Highlighted Features
 
-📦 Requirements (requirements.txt)
+- ⚡ **Direct Zip Extraction & Push**: Seamlessly handles large archives (e.g., 1000+ files) via multipart streams.
+- 🌳 **Auto `list.md` Generator**: Automatically scans project contents and generates an interactive, clean directory tree in `list.md` prior to committing.
+- 🎯 **Target Folder URL Parsing**: Paste any deep folder link (`https://github.com/owner/repo/tree/main/subfolder`) and let the URL engine auto-decode paths and branch details.
+- 🔒 **Zero-Leak Local Credentials**: Authenticates securely using a local `cred.json` file. No personal tokens are ever stored or exposed on external servers.
+- 🛠️ **Windows-Safe Git Engine**: Built-in `rmtree` exception handlers prevent file-locking permissions issues (`WinError 5`) on Windows environments.
 
-Create a requirements.txt file in your project directory with the following dependencies:
+---
 
-fastapi==0.110.0
-uvicorn==0.28.0
-python-multipart==0.0.32
+## 🛠️ Tech Stack & Architecture
 
+| Layer | Component | Description |
+| :--- | :--- | :--- |
+| **Backend** | **FastAPI + Uvicorn** | Asynchronous local Python server executing native `git` CLI operations. |
+| **Frontend** | **TailwindCSS + JSZip** | Dark-mode UI with live status log monitoring. |
+| **Auth** | **Personal Access Token (PAT)** | Authenticates `git clone` via ephemeral credential mapping. |
+| **Engine** | **Native Git Engine** | Standard `git clone`, `git add`, `git commit`, and `git push` workflow. |
 
-🚀 Installation & Setup
+---
 
-Clone or Download this repository/script:
-Ensure you have app.py and requirements.txt in your local project folder.
+## 🚀 Quick Start Guide
 
-Install Dependencies:
-Open your terminal or command prompt in the project directory and run:
-
-pip install -r requirements.txt
-
-
-Prepare your cred.json file:
-Create a JSON file named cred.json containing your GitHub username and Personal Access Token (PAT):
-
-{
-    "username": "your-github-username",
-    "token": "your-github-personal-access-token"
-}
-
-
-Run the Application:
-
-python app.py
-
-
-Open in Browser:
-Navigate to http://127.0.0.1:8000 in your web browser.
-
-💡 How to Use
-
-Upload your cred.json file in Step 1.
-
-Paste your target GitHub folder link (e.g., https://github.com/username/repo/tree/main/Data Analysis) in Step 2.
-
-Select your project .zip file in Step 3.
-
-Click "Start Git Push & Generate list.md". The app will do the rest!
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/ali-ahsan-codes/GitHub-Upload-Manager.git](https://github.com/ali-ahsan-codes/GitHub-Upload-Manager.git)
+cd GitHub-Upload-Manager
